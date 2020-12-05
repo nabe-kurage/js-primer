@@ -162,3 +162,5 @@ console.log(result2[1]);
 console.log(result2.index);
 console.log(result2.input);
 // gフラグ（正規表現の最後にg）を追加するとマッチした全てのパターンを返してくれる
+
+//========================================================
