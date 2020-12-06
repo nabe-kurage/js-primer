@@ -163,4 +163,12 @@ console.log(result2.index);
 console.log(result2.input);
 // gフラグ（正規表現の最後にg）を追加するとマッチした全てのパターンを返してくれる
 
+const matchesIterator = str7.matchAll(alphabetsPattern2);
+console.log(matchesIterator);
+for (const match of matchesIterator) {
+    console.log(match);
+}
+// es6ではmatchAllメソッドで全て情報取れる
+
 //========================================================
+
