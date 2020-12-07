@@ -172,3 +172,16 @@ for (const match of matchesIterator) {
 
 //========================================================
 
+const pattern = /ECMAScript (\d+)/;
+const [all, capture1] = 'ECMAScript 62'.match(pattern);
+console.log(all);
+console.log(capture1);
+//()で囲んだ部分がキャプチャリングとして取り出される。
+// これで正規表現でマッチした一部を取り出すことができる
+
+const pattern2 = /ES(\d+)/g;
+const matchPattern = 'ES2015、ES2016、ES2017'.matchAll(pattern2);
+for (const match of matchPattern) {
+console.log(match);
+}
+// matchAllの場合はmatch部分を繰り返しで取り出す
