@@ -185,3 +185,14 @@ for (const match of matchPattern) {
 console.log(match);
 }
 // matchAllの場合はmatch部分を繰り返しで取り出す
+
+//========================================================
+// ^は先頭
+console.log(/^にわ/.test(str5));
+console.log(/^いる/.test(str5));
+// $末尾
+console.log(/にわ$/.test(str5));
+console.log(/いる$/.test(str5));
+// 含まれるかどうか
+console.log(/にわ/.test(str5));
+console.log(/いる/.test(str5));
