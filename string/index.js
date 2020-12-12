@@ -196,3 +196,8 @@ console.log(/いる$/.test(str5));
 // 含まれるかどうか
 console.log(/にわ/.test(str5));
 console.log(/いる/.test(str5));
+
+//========================================================
+let str8 = "文字列";
+str8 = str8.replace("文字", "");
+console.log(str8);
