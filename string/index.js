@@ -198,6 +198,55 @@ console.log(/にわ/.test(str5));
 console.log(/いる/.test(str5));
 
 //========================================================
+
 let str8 = "文字列";
 str8 = str8.replace("文字", "");
 console.log(str8);
+
+console.log(str5.replace(/にわ/g, "niwa"));
+// 正規表現でも可能
+
+//キャプチャリング↓
+// https://jsprimer.net/basic/string/#match-capture-by-regexp
+function toDataJapanese(dataString) {
+    return dataString.replace(/(\d{4})-(\d{2})-(\d{2})/, (all, year, month, day) => {
+        return `${year}年${month}月${day}日`;
+    })
+};
+// まずall が入るの注意
+console.log(toDataJapanese("今日は2017-03-01です"));
+console.log(toDataJapanese("本日ハ晴天ナリ"));
+
+//========================================================
+//これを噛ませることでスラッシュが二重でついてしまうミスを防ぐ
+function baseJoin(baseURL, pathname) {
+    const stripslashBaseURL = baseURL.replace(/\/$/, "");
+    return stripslashBaseURL + pathname;
+}
+
+function getResorce(baseURL, pathname) {
+    const url = baseJoin(baseURL, pathname);
+    console.log(url);
+}
+
+const baseURL = "http://example.com/resouces/";
+const pathname = "/example.js";
+getResorce(baseURL, pathname);
+//========================================================
+function tag(str, ...val) {
+    console.log(str);
+    console.log(val);
+};
+//テンプレートで呼び出すことで後ろの数値に対応した番号で値が入る
+tag(`template ${0} literal ${1}`);
+tag`template ${0} literal ${1}`;
+
+function stringRaw(strings, ...value) {
+    console.log(strings);
+    console.log('test');
+    return strings.reduce((result, str, i) => {
+        console.log([result, value[i - 1], str]);
+        return result + value[i - 1] + str;
+    })
+}
+console.log(stringRaw`template ${0} literal ${1}`);
