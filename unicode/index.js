@@ -12,3 +12,28 @@ const hexOfあ = codePointOfあ.toString(16);// 16進数に変更
 console.log(hexOfあ);
 console.log("\u{3042}");
 //========================================================
+
+// code unit(符号単位) はUnicodeの１文字を表す最小ビットの組み合わせのこと。
+// codePointとCodeUnitoは異なる場合もある
+//  以下は２つのCodeUnitsの組み合わせで1つのCodePointsを表現する、この仕組みを場合サロゲートペアという
+function convertCodeUnits(str) {
+    const codeUnits = [];
+    for (let i = 0; i < str.length; i++) {
+        codeUnits.push(str.charCodeAt(i).toString(16));
+    }
+    return codeUnits;
+}
+
+function convertCodePoints(str){
+    
+    return Array.from(str).map(char => {
+        return char.codePointAt(0).toString(16);
+    });
+};
+
+console.log(convertCodeUnits("🍎"));
+console.log(convertCodePoints("🍎"));
+
+console.log("\uD867\uDE3D");
+console.log("𩸽"[0]);
+console.log("𩸽"[1]);
