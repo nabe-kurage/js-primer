@@ -37,3 +37,16 @@ console.log(convertCodePoints("🍎"));
 console.log("\uD867\uDE3D");
 console.log("𩸽"[0]);
 console.log("𩸽"[1]);
+
+//========================================================
+
+const codePoints = Array.from("りんご🍎");
+console.log(codePoints);
+console.log(codePoints.length);
+
+function countOfCodePoints(str, codePoint) {
+    return Array.from(str).filter(item => {
+        return item === codePoint;
+    }).length;
+}
+console.log(countOfCodePoints("🍎🍇🍎🥕🍒", "🍎"));
