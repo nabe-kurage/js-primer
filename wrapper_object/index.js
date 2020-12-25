@@ -17,3 +17,8 @@ console.log(typeof stringWrapper);
 
 //========================================================
 
+// 自動的にラッパーオブジェクトに変換される。
+const str2 = "string";
+str2.toUpperCase();
+// (new String(str)).toUpperCase();と同じになる
+// なので常にラッパーオブジェクトのほうでは無く、リテラルを使うほうが効率的
