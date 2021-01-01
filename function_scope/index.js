@@ -24,6 +24,7 @@ var isValid = function(s) {
         }
     }
     
+    
     if(guess.length > 0){
        return false;
     }
