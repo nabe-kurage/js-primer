@@ -1,35 +1,17 @@
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
- // [7,2,5,3,6,4,1]
-//  差分を持っておく必要がある？
-// →そうか全ての値で最大値を持っておけばいいんだ
-var isValid = function(s) {
-    const letterSets =  {'(':')', '{':'}', '[':']'};
-    const guess = [];
-    for (i = 0; i < s.length; i++){
-        console.log(letterSets.hasOwnProperty(s[i]));
+var moveZeroes = function(nums) {
+    let zeroNum = 0;
+    for (i=0; i<nums.length; i++) {
+        index = i - zeroNum;
+        num = nums[index];
+        if (num === 0) {
+        console.log('test');
 
-        if (s.hasOwnProperty(s[i])) {
-            
-            guess.push(letterSets[s[i]]);
-        } else {
-            if(guess[guess.length - 1] === s[i]){
-                guess.pop();
-            }else{
-                return false;
-            }
+            zeroNum++;
+            nums.splice(index, 1);
+            nums.push(0);
         }
     }
-    
-    
-    if(guess.length > 0){
-       return false;
-    }
-    return true;
+    return nums;
 };
 
-
-console.log(isValid("()"));
+console.log(moveZeroes([0,1,4,0,4]));
