@@ -1,17 +1,23 @@
-var moveZeroes = function(nums) {
-    let zeroNum = 0;
-    for (i=0; i<nums.length; i++) {
-        index = i - zeroNum;
-        num = nums[index];
-        if (num === 0) {
-        console.log('test');
+function fn(arg) {
+    console.log(arg);
+}
+fn(1);
+// ↓関数スコープの外なのでエラーとなる
+// console.log(arg); 
 
-            zeroNum++;
-            nums.splice(index, 1);
-            nums.push(0);
-        }
-    }
-    return nums;
-};
+//========================================================
+if (true) {
+    const x = "inner";
+}
+// ↓ブロックスコープの外なのでエラーとなる
+// console.log(arg); 
 
-console.log(moveZeroes([0,1,4,0,4]));
+//for文はループごとにブロックスコープを作成する。
+
+//========================================================
+console.log(x); // error
+console.log(y); // undifind var は宣言の巻き上げが怒る
+
+let x = 'test';
+var y = 'test';
+
